@@ -43,6 +43,8 @@ class forthpage extends React.Component {
         two:0,
         three:0,
         more:0,
+        select_G:0,
+        select_N:0,
         background_img: 'null'
     };
   }
@@ -53,7 +55,8 @@ class forthpage extends React.Component {
     this.setState({num_of_people : number});
     //alert('number of people：' + number);
   }
-  //add
+
+
 
   render() {
    
@@ -83,8 +86,9 @@ class forthpage extends React.Component {
         console.log(pickerResult);
       }
     };
-  //add
+  
 
+    
     return (
       <View style={{ flex: 1 }}>
         <SafeAreaView
@@ -119,13 +123,23 @@ class forthpage extends React.Component {
             </View>
           
             <View style={styles.bottom_container}>
-              <TouchableOpacity onPress={() => this.setState({Male: this.state.Male==0 ? 1:0})} style={[styles.button,{backgroundColor: this.state.Male==0 ? '#ccc':'#ABDB8A'}]}>
+              <TouchableOpacity onPress={() => 
+              { if(this.state.select_G==0)
+                 this.setState({Male: 1,select_G: 1})
+                else if(this.state.select_G==1 && this.state.Male==1)
+                 this.setState({Male: 0,select_G: 0}) }}
+               style={[styles.button,{backgroundColor: this.state.Male==0 ? '#ccc':'#ABDB8A'}]}>
                 <Text style={[styles.buttonText,{color:this.state.Male==0?'#000':'white'}]}>
                   Male
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => this.setState({Female: this.state.Female==0 ? 1:0})} style={[styles.button,{backgroundColor: this.state.Female==0 ? '#ccc':'#ABDB8A'}]}>
+              <TouchableOpacity onPress={() =>
+              { if(this.state.select_G==0)
+                this.setState({Female: 1,select_G: 1})
+                else if(this.state.select_G==1 && this.state.Female==1)
+                this.setState({Female: 0,select_G: 0}) }}
+                 style={[styles.button,{backgroundColor: this.state.Female==0 ? '#ccc':'#ABDB8A'}]}>
                 <Text style={[styles.buttonText,{color:this.state.Female==0?'#000':'white'}]}>
                   Female
               </Text>
@@ -137,25 +151,45 @@ class forthpage extends React.Component {
             </View>
 
             <View style={styles.bottom_container}>
-              <TouchableOpacity onPress={() => this.setState({one: this.state.one==0 ? 1:0})} style={[styles.button,{backgroundColor: this.state.one==0 ? '#ccc':'#ABDB8A'}]}>
+              <TouchableOpacity onPress={() => 
+              { if(this.state.select_N==0)
+                this.setState({one: 1,select_N: 1})
+                else if(this.state.select_N==1 && this.state.one==1)
+                this.setState({one: 0,select_N: 0}) }}
+                style={[styles.button,{backgroundColor: this.state.one==0 ? '#ccc':'#ABDB8A'}]}>
               <Text style={[styles.buttonText,{color:this.state.one==0?'#000':'white'}]}>
                   1
               </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => this.setState({two: this.state.two==0 ? 1:0})} style={[styles.button,{backgroundColor: this.state.two==0 ? '#ccc':'#ABDB8A'}]}>
+              <TouchableOpacity onPress={() => 
+              { if(this.state.select_N==0)
+                this.setState({two: 1,select_N: 1})
+                else if(this.state.select_N==1 && this.state.two==1)
+                this.setState({two: 0,select_N: 0}) }}
+                style={[styles.button,{backgroundColor: this.state.two==0 ? '#ccc':'#ABDB8A'}]}>
                 <Text style={[styles.buttonText,{color:this.state.two==0?'#000':'white'}]}>
                     2
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => this.setState({three: this.state.three==0 ? 1:0})} style={[styles.button,{backgroundColor: this.state.three==0 ? '#ccc':'#ABDB8A'}]}>
+              <TouchableOpacity onPress={() => 
+              { if(this.state.select_N==0)
+                this.setState({three: 1,select_N: 1})
+                else if(this.state.select_N==1 && this.state.three==1)
+                this.setState({three: 0,select_N: 0}) }}
+                style={[styles.button,{backgroundColor: this.state.three==0 ? '#ccc':'#ABDB8A'}]}>
               <Text style={[styles.buttonText,{color:this.state.three==0?'#000':'white'}]}>
                   3
               </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => this.setState({more: this.state.more==0 ? 1:0})} style={[styles.button,{backgroundColor: this.state.more==0 ? '#ccc':'#ABDB8A'}]}>
+              <TouchableOpacity onPress={() => 
+              { if(this.state.select_N==0)
+                this.setState({more: 1,select_N: 1})
+                else if(this.state.select_N==1 && this.state.more==1)
+                this.setState({more: 0,select_N: 0}) }}
+                style={[styles.button,{backgroundColor: this.state.more==0 ? '#ccc':'#ABDB8A'}]}>
                 <Text style={[styles.buttonText,{color:this.state.more==0?'#000':'white'}]}>
                     more
                 </Text>
